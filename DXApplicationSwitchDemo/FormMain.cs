@@ -101,7 +101,7 @@ namespace DXApplicationSwitchDemo
                 ////var senderNavBarLink = e.Link;
                 NavigationPage activeNavigationPage = (NavigationPage)navigationFrameMain.SelectedPage;
 
-                if (senderNavBarItem == employeesNavBarItem || senderNavBarItem == customersNavBarItem)
+                ////if (senderNavBarItem == employeesNavBarItem || senderNavBarItem == customersNavBarItem)
                 {
                     #region  Clear Form or Control
                     foreach (var eachvar in navigationFrameMain.Controls)
