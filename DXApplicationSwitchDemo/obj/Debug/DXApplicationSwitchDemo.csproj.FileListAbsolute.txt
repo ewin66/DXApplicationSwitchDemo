@@ -1,0 +1,7 @@
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\bin\Debug\DXApplicationSwitchDemo.exe.config
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\obj\Debug\DXApplicationSwitchDemo.csprojResolveAssemblyReference.cache
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\obj\Debug\DXApplicationSwitchDemo.FormMain.resources
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\obj\Debug\DXApplicationSwitchDemo.Properties.Resources.resources
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\obj\Debug\DXApplicationSwitchDemo.XtraFormBase.resources
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\obj\Debug\DXApplicationSwitchDemo.csproj.GenerateResource.Cache
+C:\Users\Ewin66\Source\Repos\DXApplicationSwitchDemo\DXApplicationSwitchDemo\DXApplicationSwitchDemo\obj\Debug\DXApplicationSwitchDemo.exe.licenses

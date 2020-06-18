@@ -26,20 +26,20 @@ namespace DXApplicationSwitchDemo
 
             Application.Run(new FormMain());
 
-            void CurrentDomain_UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs args)
-            {
-                Exception unhandledException = (Exception)args.ExceptionObject;
-                ////Console.WriteLine("UnhandledExceptionHandler caught : " + unhandledException.Message);
-                throw new NotImplementedException();
-                //Application.Restart();
-            }
-            void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs args)
-            {
-                Exception threadException = (Exception)args.Exception;
-                throw new NotImplementedException();
-                ////Application.Restart();
-            }
-
         }
+        static void CurrentDomain_UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception unhandledException = (Exception)args.ExceptionObject;
+            ////Console.WriteLine("UnhandledExceptionHandler caught : " + unhandledException.Message);
+            throw new NotImplementedException();
+            //Application.Restart();
+        }
+        static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs args)
+        {
+            Exception threadException = (Exception)args.Exception;
+            throw new NotImplementedException();
+            ////Application.Restart();
+        }
+
     }
 }
