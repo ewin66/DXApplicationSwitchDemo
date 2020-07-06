@@ -12,13 +12,21 @@ namespace DXApplicationSwitchDemo
 {
     public partial class UserControl1 : UserControl
     {
-        public UserControl1()
+        static int count = 0;
+        UserControl1()
         {
             InitializeComponent();
+        }
+        public UserControl1(int paraint)
+            :this()
+        {
+            this.textBox1.Text = paraint.ToString();
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
+            count++;
+            comboBox1.Text = count.ToString();
             ////if (this.ParentForm != null)
             ////{
             ////    if (this.ParentForm is FormMain)

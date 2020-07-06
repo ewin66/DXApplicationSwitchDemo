@@ -38,32 +38,64 @@ namespace DXApplicationSwitchDemo
                 Document senderDocument = e.Document as Document;
                 Control senderControl = senderDocument.Control;
 
-                if (e.Document.Caption.Equals("document0", StringComparison.InvariantCultureIgnoreCase))
+                if (e.Document.Caption.Equals("document1", StringComparison.InvariantCultureIgnoreCase) ||
+                    e.Document.Caption.Equals("document2", StringComparison.InvariantCultureIgnoreCase) ||
+                    e.Document.Caption.Equals("document3", StringComparison.InvariantCultureIgnoreCase) ||
+                    e.Document.Caption.Equals("document4", StringComparison.InvariantCultureIgnoreCase)
+                    )
                 {
                     if (string.IsNullOrEmpty(e.Document.ControlTypeName))
                     {
-                        if (controlTypename.Equals(typeof(UserControl).Name))
+                        if (controlTypename.Equals(typeof(UserControl1).Name))
                         {
-                            e.Document.ControlTypeName = typeof(UserControl).ToString();
-                            e.Document.ControlName = typeof(UserControl).Name.ToString();
+                            ////e.Document.ControlTypeName = typeof(UserControl1).ToString();
+                            ////e.Document.ControlName = typeof(UserControl1).Name.ToString();
+                        }
+                        else if (controlTypename.Equals(typeof(ucVaginoscopeView).Name))
+                        {
+                            ////e.Document.ControlTypeName = typeof(UserControl).ToString();
+                            ////e.Document.ControlName = typeof(UserControl).Name.ToString();
+                        }
+                         else if (controlTypename.Equals(typeof(UserControl).Name))
+                        {
+                            ////e.Document.ControlTypeName = typeof(UserControl).ToString();
+                            ////e.Document.ControlName = typeof(UserControl).Name.ToString();
                         }
                         else
                         {
-                            e.Document.ControlTypeName = typeof(XtraUserControl).ToString();
-                            e.Document.ControlName = typeof(XtraUserControl).Name.ToString();
+                            ////e.Document.ControlTypeName = typeof(XtraUserControl).ToString();
+                            ////e.Document.ControlName = typeof(XtraUserControl).Name.ToString();
                         }
                     }
                     if (e.Control == null)
                     {
-                        if (!string.IsNullOrEmpty(e.Document.ControlTypeName))
+                        if (!string.IsNullOrEmpty(controlTypename))
+                        {
+                            if (controlTypename.Equals(typeof(UserControl1).Name))
+                            {
+                                e.Control = new UserControl1(FormMain.newcontrolcount);
+                            }
+                            else if (controlTypename.Equals(typeof(ucVaginoscopeView).Name))
+                            {
+                                e.Control = new UserControl();
+                            }
+                            else if (controlTypename.Equals(typeof(UserControl).Name))
+                            {
+                                e.Control = new UserControl();
+                            }
+                            else
+                            {
+                                e.Control = new XtraUserControl();
+                            }
+                            
+                        }
+                        else if (!string.IsNullOrEmpty(e.Document.ControlTypeName))
                         {
                             e.Control = Activator.CreateInstance(Type.GetType(e.Document.ControlTypeName)) as Control;
-                            WriteLog($"{nameof(widgetView1_QueryControl)} : {nameof(Activator.CreateInstance)}: {DateTime.Now.ToString(@"yyyy-MM-dd HH:mm:ss")}");
                         }
                         else
                         {
                             e.Control = new XtraUserControl();
-                            e.Control.Dock = DockStyle.Fill;
                         }
                     }
                 }
@@ -106,7 +138,16 @@ namespace DXApplicationSwitchDemo
                 WidgetView senderWidgetView = sender as WidgetView;
                 foreach (Document eachDocument in senderWidgetView.Documents)
                 {
-                    if (eachDocument.Control is XtraUserControl)
+                    if (eachDocument.Control is UserControl1)
+                    {
+                        UserControl1 XtraUserControl = eachDocument.Control as UserControl1;
+                        {
+                            XtraUserControl.Dispose();
+                            XtraUserControl = null;
+                        }
+                        break;
+                    }
+                    else if (eachDocument.Control is XtraUserControl)
                     {
                         XtraUserControl XtraUserControl = eachDocument.Control as XtraUserControl;
                         {
@@ -207,6 +248,16 @@ namespace DXApplicationSwitchDemo
             catch (OutOfMemoryException catchOutOfMemoryException)
             {
             }
+        }
+
+        private void widgetViewMain_ControlReleasing(object sender, DevExpress.XtraBars.Docking2010.Views.ControlReleasingEventArgs e)
+        {
+
+        }
+
+        private void document1_Maximized(object sender, EventArgs e)
+        {
+
         }
     }
 }

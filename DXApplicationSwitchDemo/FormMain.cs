@@ -21,6 +21,7 @@ namespace DXApplicationSwitchDemo
 
         ////////public innerclassObject nweinnerclassObject = new innerclassObject();
 
+       public int newcontrolcount = 0;
         public FormMain()
         {
             InitializeComponent();
@@ -43,7 +44,13 @@ namespace DXApplicationSwitchDemo
                 FormBorderStyle = FormBorderStyle.None,
                 //handleOverlayForm = newHandleOverlayForm,
             };
+            newFormColpModule.Disposed += NewFormColpModule_Disposed;
             return newFormColpModule;
+        }
+
+        private void NewFormColpModule_Disposed(object sender, EventArgs e)
+        {
+            ////throw new NotImplementedException();
         }
 
         private void timerSwitch_Tick(object sender, EventArgs e)
@@ -55,7 +62,7 @@ namespace DXApplicationSwitchDemo
                 ////if (!stopswitchtimer)
                 {
                     switchDelay += sendertimer.Interval;
-                    int inrerset = 5;
+                    int inrerset = 10;
    
                     if (switchDelay >= inrerset * 100)
                     {
@@ -104,25 +111,36 @@ namespace DXApplicationSwitchDemo
                 ////if (senderNavBarItem == employeesNavBarItem || senderNavBarItem == customersNavBarItem)
                 {
                     #region  Clear Form or Control
-                    foreach (var eachvar in navigationFrameMain.Controls)
+                    if (true)
                     {
-                        if (eachvar is DevExpress.XtraBars.Navigation.NavigationPage)
+                        foreach (var eachvar in navigationFrameMain.Controls)
                         {
-                            DevExpress.XtraBars.Navigation.NavigationPage eachNavigationPage = eachvar as DevExpress.XtraBars.Navigation.NavigationPage;
-                            if (eachNavigationPage == activeNavigationPage)
+                            if (eachvar is DevExpress.XtraBars.Navigation.NavigationPage)
                             {
-                                foreach (var eachForm in eachNavigationPage.Controls)
+                                DevExpress.XtraBars.Navigation.NavigationPage eachNavigationPage = eachvar as DevExpress.XtraBars.Navigation.NavigationPage;
+                                if (eachNavigationPage == activeNavigationPage)
                                 {
-                                    if (eachForm is XtraFormBase)
+                                    while (eachNavigationPage.Controls.Count > 0)
                                     {
-                                        eachNavigationPage.Controls.Clear();
-                                        ////(eachForm as XtraFormBase).Dispose();
-                                        ////break;
+                                        var ctrl = eachNavigationPage.Controls[0];
+                                        ////ctrl.Parent = null;
+                                        ctrl.Dispose();
+                                        ctrl = null;
                                     }
-                                    else
-                                    {
-                                        eachNavigationPage.Controls.Clear();
-                                    }
+
+                                    ////////foreach (var eachForm in eachNavigationPage.Controls)
+                                    ////////{
+                                    ////////    if (eachForm is XtraFormBase)
+                                    ////////    {
+                                    ////////        eachNavigationPage.Controls.Clear();
+                                    ////////        ////(eachForm as XtraFormBase).Dispose();
+                                    ////////        ////break;
+                                    ////////    }
+                                    ////////    else
+                                    ////////    {
+                                    ////////        eachNavigationPage.Controls.Clear();
+                                    ////////    }
+                                    ////////}
                                 }
                             }
                         }
@@ -130,7 +148,7 @@ namespace DXApplicationSwitchDemo
                     #endregion
 
                     #region  Add Form
-                    if (formExist == false)
+                    if (false) ////formExist == false)
                     {
                         try
                         {
@@ -140,18 +158,23 @@ namespace DXApplicationSwitchDemo
                             }
                             if (navigationFrameMain != null && !navigationFrameMain.IsDisposed)
                             {
-                                 {
+                                {
                                     {
                                         if (activeNavigationPage.Controls.Count > 0)
                                         {
-                                            throw new  WarningException();
+                                            throw new WarningException();
                                             ////activeNavigationPage.Controls.Clear();
                                         }
-                                        String userControlName = typeof(XtraUserControl).Name;
+                                        String userControlName = typeof(UserControl1).Name;
+                                        ////String userControlName = typeof(XtraUserControl).Name;
                                         XtraFormBase newFormColpModule = newXtraFormBase(userControlName);
                                         int controlCount = activeNavigationPage.Controls.Count;
                                         activeNavigationPage.Controls.Add((Control)(newFormColpModule));
                                         Debug.WriteLine($"{methodname} : {newFormColpModule}.{newFormColpModule} : {DateTime.Now.ToString(@"yyyy-MM-dd HH:mm:ss")}");
+
+                                        newcontrolcount++;
+                                        this.barStaticItemCount.Caption = newcontrolcount.ToString();
+
                                         activeNavigationPage.SuspendLayout();
                                         newFormColpModule.Visible = true;
                                         newFormColpModule.Dock = DockStyle.Fill;
@@ -171,6 +194,67 @@ namespace DXApplicationSwitchDemo
                     #endregion
                 }
             }
+        }
+
+        private void navigationFrameMain_QueryControl(object sender, QueryControlEventArgs e)
+        {
+            if (sender is NavigationFrame)
+            {
+                NavigationFrame senderNavigationFrame = sender as NavigationFrame;
+
+                if (senderNavigationFrame.Visible == false)
+                {
+                    throw new NotSupportedException();
+                }
+
+                NavigationPage activeNavigationPage = (NavigationPage)e.Page;
+                int controlsCount = activeNavigationPage.Controls.Count;
+
+                #region  Clear Form or Control
+                if (true)
+                {
+                    foreach (var eachvar in navigationFrameMain.Controls)
+                    {
+                        if (eachvar is DevExpress.XtraBars.Navigation.NavigationPage)
+                        {
+                            DevExpress.XtraBars.Navigation.NavigationPage eachNavigationPage = eachvar as DevExpress.XtraBars.Navigation.NavigationPage;
+                            if (eachNavigationPage == activeNavigationPage)
+                            {
+                                while (eachNavigationPage.Controls.Count > 0)
+                                {
+                                    var ctrl = eachNavigationPage.Controls[0];
+                                    ////ctrl.Parent = null;
+                                    ctrl.Dispose();
+                                    ctrl = null;
+                                }
+                            }
+                        }
+                    }
+                }
+                #endregion
+
+                ////String userControlName = typeof(UserControl1).Name;
+                String userControlName = typeof(ucVaginoscopeView).Name;
+                XtraFormBase newFormColpModule = newXtraFormBase(userControlName);
+
+                newcontrolcount++;
+                this.barStaticItemCount.Caption = newcontrolcount.ToString();
+
+                activeNavigationPage.SuspendLayout();
+                activeNavigationPage.Controls.Add((Control)(newFormColpModule));
+                newFormColpModule.Visible = true;
+                newFormColpModule.Dock = DockStyle.Fill;
+                newFormColpModule.ResumeLayout(false);
+
+                activeNavigationPage.ResumeLayout(false);
+                activeNavigationPage.PerformLayout();
+            }
+        }
+
+        private void navigationFrameMain_ControlReleasing(object sender, ControlReleasingEventArgs e)
+        {
+            e.KeepControl = false;
+            e.DisposeControl = true;
         }
     }
 }

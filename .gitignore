@@ -3,3 +3,8 @@
 ################################################################################
 
 /DXApplicationSwitchDemo/bin/Debug
+/DXApplicationSwitchDemo/obj/Debug
+/DXApplicationSwitchDemo/ucVaginoscopeView.cs
+/DXApplicationSwitchDemo/ucVaginoscopeView.Designer.cs
+/DXApplicationSwitchDemo/ucVaginoscopeView.resx
+/.vs/DXApplicationSwitchDemo/v16/Server/sqlite3

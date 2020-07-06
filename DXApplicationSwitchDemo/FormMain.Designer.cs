@@ -33,13 +33,13 @@
             this.ribbonControlMain = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.skinRibbonGalleryBarItem = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barSubItemNavigation = new DevExpress.XtraBars.BarSubItem();
-            this.employeesBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.customersBarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.skinDropDownButtonItem = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.skinPaletteRibbonGalleryBarItem = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.barStaticItemCount = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupNavigation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.officeNavigationBar = new DevExpress.XtraBars.Navigation.OfficeNavigationBar();
             this.navBarControlMain = new DevExpress.XtraNavBar.NavBarControl();
@@ -49,9 +49,7 @@
             this.customersNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.navigationFrameMain = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.employeesLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.timerSwitch = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
@@ -59,8 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrameMain)).BeginInit();
             this.navigationFrameMain.SuspendLayout();
-            this.employeesNavigationPage.SuspendLayout();
-            this.customersNavigationPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControlMain
@@ -71,12 +67,11 @@
             this.ribbonControlMain.SearchEditItem,
             this.skinRibbonGalleryBarItem,
             this.barSubItemNavigation,
-            this.employeesBarButtonItem,
-            this.customersBarButtonItem,
             this.skinDropDownButtonItem,
-            this.skinPaletteRibbonGalleryBarItem});
+            this.skinPaletteRibbonGalleryBarItem,
+            this.barStaticItemCount});
             this.ribbonControlMain.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControlMain.MaxItemId = 46;
+            this.ribbonControlMain.MaxItemId = 47;
             this.ribbonControlMain.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControlMain.Name = "ribbonControlMain";
             this.ribbonControlMain.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -97,24 +92,7 @@
             this.barSubItemNavigation.Caption = "Navigation";
             this.barSubItemNavigation.Id = 15;
             this.barSubItemNavigation.ImageOptions.ImageUri.Uri = "NavigationBar";
-            this.barSubItemNavigation.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.employeesBarButtonItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.customersBarButtonItem)});
             this.barSubItemNavigation.Name = "barSubItemNavigation";
-            // 
-            // employeesBarButtonItem
-            // 
-            this.employeesBarButtonItem.Caption = "Employees";
-            this.employeesBarButtonItem.Id = 44;
-            this.employeesBarButtonItem.Name = "employeesBarButtonItem";
-            this.employeesBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
-            // 
-            // customersBarButtonItem
-            // 
-            this.customersBarButtonItem.Caption = "Customers";
-            this.customersBarButtonItem.Id = 45;
-            this.customersBarButtonItem.Name = "customersBarButtonItem";
-            this.customersBarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNavigation_ItemClick);
             // 
             // skinDropDownButtonItem
             // 
@@ -127,11 +105,18 @@
             this.skinPaletteRibbonGalleryBarItem.Id = 47;
             this.skinPaletteRibbonGalleryBarItem.Name = "skinPaletteRibbonGalleryBarItem";
             // 
+            // barStaticItemCount
+            // 
+            this.barStaticItemCount.Caption = "0";
+            this.barStaticItemCount.Id = 46;
+            this.barStaticItemCount.Name = "barStaticItemCount";
+            // 
             // ribbonPage
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroupNavigation,
-            this.ribbonPageGroup});
+            this.ribbonPageGroup,
+            this.ribbonPageGroup1});
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "View";
             // 
@@ -149,6 +134,12 @@
             this.ribbonPageGroup.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem);
             this.ribbonPageGroup.Name = "ribbonPageGroup";
             this.ribbonPageGroup.Text = "Appearance";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barStaticItemCount);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "MemoryTest";
             // 
             // ribbonStatusBar
             // 
@@ -212,6 +203,7 @@
             // 
             this.customersNavBarItem.Caption = "navBarItem2";
             this.customersNavBarItem.Name = "customersNavBarItem";
+            this.customersNavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem_LinkClicked);
             // 
             // navigationFrameMain
             // 
@@ -230,52 +222,18 @@
             this.navigationFrameMain.Size = new System.Drawing.Size(461, 186);
             this.navigationFrameMain.TabIndex = 0;
             this.navigationFrameMain.Text = "navigationFrame";
+            this.navigationFrameMain.QueryControl += new DevExpress.XtraBars.Navigation.QueryControlEventHandler(this.navigationFrameMain_QueryControl);
+            this.navigationFrameMain.ControlReleasing += new DevExpress.XtraBars.Navigation.ControlReleasingEventHandler(this.navigationFrameMain_ControlReleasing);
             // 
             // employeesNavigationPage
             // 
-            this.employeesNavigationPage.Controls.Add(this.employeesLabelControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
             this.employeesNavigationPage.Size = new System.Drawing.Size(461, 186);
             // 
-            // employeesLabelControl
-            // 
-            this.employeesLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 25.25F);
-            this.employeesLabelControl.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.employeesLabelControl.Appearance.Options.UseFont = true;
-            this.employeesLabelControl.Appearance.Options.UseForeColor = true;
-            this.employeesLabelControl.Appearance.Options.UseTextOptions = true;
-            this.employeesLabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.employeesLabelControl.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.employeesLabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.employeesLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeesLabelControl.Location = new System.Drawing.Point(0, 0);
-            this.employeesLabelControl.Name = "employeesLabelControl";
-            this.employeesLabelControl.Size = new System.Drawing.Size(461, 186);
-            this.employeesLabelControl.TabIndex = 0;
-            this.employeesLabelControl.Text = "Employees";
-            // 
             // customersNavigationPage
             // 
-            this.customersNavigationPage.Controls.Add(this.customersLabelControl);
             this.customersNavigationPage.Name = "customersNavigationPage";
             this.customersNavigationPage.Size = new System.Drawing.Size(461, 186);
-            // 
-            // customersLabelControl
-            // 
-            this.customersLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 25.25F);
-            this.customersLabelControl.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.customersLabelControl.Appearance.Options.UseFont = true;
-            this.customersLabelControl.Appearance.Options.UseForeColor = true;
-            this.customersLabelControl.Appearance.Options.UseTextOptions = true;
-            this.customersLabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.customersLabelControl.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.customersLabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.customersLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customersLabelControl.Location = new System.Drawing.Point(0, 0);
-            this.customersLabelControl.Name = "customersLabelControl";
-            this.customersLabelControl.Size = new System.Drawing.Size(461, 186);
-            this.customersLabelControl.TabIndex = 1;
-            this.customersLabelControl.Text = "Customers";
             // 
             // timerSwitch
             // 
@@ -301,8 +259,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControlMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrameMain)).EndInit();
             this.navigationFrameMain.ResumeLayout(false);
-            this.employeesNavigationPage.ResumeLayout(false);
-            this.customersNavigationPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,15 +279,13 @@
         private DevExpress.XtraNavBar.NavBarGroup employeesNavBarGroup;
         private DevExpress.XtraNavBar.NavBarGroup customersNavBarGroup;
         private DevExpress.XtraBars.Navigation.NavigationPage employeesNavigationPage;
-        private DevExpress.XtraEditors.LabelControl employeesLabelControl;
         private DevExpress.XtraBars.Navigation.NavigationPage customersNavigationPage;
-        private DevExpress.XtraEditors.LabelControl customersLabelControl;
-        private DevExpress.XtraBars.BarButtonItem employeesBarButtonItem;
-        private DevExpress.XtraBars.BarButtonItem customersBarButtonItem;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem;
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem;
         private System.Windows.Forms.Timer timerSwitch;
         private DevExpress.XtraNavBar.NavBarItem employeesNavBarItem;
         private DevExpress.XtraNavBar.NavBarItem customersNavBarItem;
+        private DevExpress.XtraBars.BarStaticItem barStaticItemCount;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

@@ -37,7 +37,7 @@ namespace DXApplicationSwitchDemo
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs args)
         {
             Exception threadException = (Exception)args.Exception;
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
             ////Application.Restart();
         }
 
