@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraNavBar;
 using System.Diagnostics;
 using DevExpress.XtraBars.Navigation;
+using System.Threading;
 
 namespace DXApplicationSwitchDemo
 {
@@ -64,7 +65,7 @@ namespace DXApplicationSwitchDemo
                     switchDelay += sendertimer.Interval;
                     int inrerset = 10;
    
-                    if (switchDelay >= inrerset * 100)
+                    if (switchDelay >= inrerset * 1000)
                     {
                         if (navBarItemIndex <= 0)
                             navBarItemIndex = 0;
@@ -74,12 +75,23 @@ namespace DXApplicationSwitchDemo
                         {
                             try
                             {
-                                {
-                                    NavBarItem navBarItem = navBarControlMain.Items[navBarItemIndex];
-                                    navBarControlMain.ActiveGroup = navBarItem.Links[0].Group;
-                                    navBarControlMain.ActiveGroup.SelectedLink = navBarItem.Links[0];  //定位navBarItem
-                                    navBarItem.Links[0].PerformClick();    //触发navBarItem_LinkClicked
-                                }
+                                //new Thread(new ParameterizedThreadStart(delegate (object threadObject)
+                                //{
+                                //    Thread.CurrentThread.IsBackground = true;
+                                    if (!this.Disposing && !this.IsDisposed)
+                                    {
+                                        this.BeginInvoke(new MethodInvoker(delegate
+                                        {
+                                            if (navBarControlMain.Items.Count > navBarItemIndex)
+                                            {
+                                                NavBarItem navBarItem = navBarControlMain.Items[navBarItemIndex];
+                                                navBarControlMain.ActiveGroup = navBarItem.Links[0].Group;
+                                                navBarControlMain.ActiveGroup.SelectedLink = navBarItem.Links[0];  //定位navBarItem
+                                                navBarItem.Links[0].PerformClick();    //触发navBarItem_LinkClicked
+                                            }
+                                        }));
+                                    }
+                                //})).Start();
                             }
                             catch (Exception catchException)
                             {
@@ -113,6 +125,7 @@ namespace DXApplicationSwitchDemo
                     #region  Clear Form or Control
                     if (true)
                     {
+
                         foreach (var eachvar in navigationFrameMain.Controls)
                         {
                             if (eachvar is DevExpress.XtraBars.Navigation.NavigationPage)
@@ -123,8 +136,17 @@ namespace DXApplicationSwitchDemo
                                     while (eachNavigationPage.Controls.Count > 0)
                                     {
                                         var ctrl = eachNavigationPage.Controls[0];
-                                        ////ctrl.Parent = null;
-                                        ctrl.Dispose();
+                                        eachNavigationPage.Controls.RemoveAt(0);
+
+                                        ctrl.BeginInvoke(new MethodInvoker(delegate
+                                        {
+                                            ////ctrl.Parent = null;
+                                            if (ctrl is XtraFormBase)
+                                            {
+                                                (ctrl as XtraFormBase).Close();
+                                            }
+                                            ctrl.Dispose();
+                                        }));
                                         ctrl = null;
                                     }
 
@@ -143,12 +165,12 @@ namespace DXApplicationSwitchDemo
                                     ////////}
                                 }
                             }
-                        }
+                        }                       
                     }
                     #endregion
 
                     #region  Add Form
-                    if (false) ////formExist == false)
+                    if (formExist == false)
                     {
                         try
                         {

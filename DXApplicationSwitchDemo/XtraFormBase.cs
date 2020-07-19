@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using DevExpress.XtraBars.Docking2010.Views.Widget;
 using DevExpress.XtraEditors;
-using DevExpress.XtraBars.Docking2010.Views.Widget;
+using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Windows.Forms;
 
 namespace DXApplicationSwitchDemo
 {
@@ -25,9 +20,25 @@ namespace DXApplicationSwitchDemo
         public XtraFormBase(Object formMain, String typename)
         {
             InitializeComponent();
-            if(formMain is FormMain)
+            if (formMain is FormMain)
                 FormMain = formMain as FormMain;
             controlTypename = typename;
+        }
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                /////
+                ////保存数据
+                ////this.Close();
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
         private void widgetView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
@@ -56,7 +67,7 @@ namespace DXApplicationSwitchDemo
                             ////e.Document.ControlTypeName = typeof(UserControl).ToString();
                             ////e.Document.ControlName = typeof(UserControl).Name.ToString();
                         }
-                         else if (controlTypename.Equals(typeof(UserControl).Name))
+                        else if (controlTypename.Equals(typeof(UserControl).Name))
                         {
                             ////e.Document.ControlTypeName = typeof(UserControl).ToString();
                             ////e.Document.ControlName = typeof(UserControl).Name.ToString();
@@ -87,7 +98,7 @@ namespace DXApplicationSwitchDemo
                             {
                                 e.Control = new XtraUserControl();
                             }
-                            
+
                         }
                         else if (!string.IsNullOrEmpty(e.Document.ControlTypeName))
                         {
@@ -122,7 +133,8 @@ namespace DXApplicationSwitchDemo
 
         private void XtraFormBase_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Test");
+           
+            ////MessageBox.Show("Test");
         }
 
         private void widgetViewMain_DocumentAdded(object sender, DevExpress.XtraBars.Docking2010.Views.DocumentEventArgs e)
@@ -195,6 +207,7 @@ namespace DXApplicationSwitchDemo
 
         private void XtraFormBase_Load(object sender, EventArgs e)
         {
+            documentManagerMain.View.RestoreLayoutFromXml(Path.Combine(Application.StartupPath, "layout.xml"));
             try
             {
                 Bitmap backupBackgroundImage = null;
@@ -258,6 +271,31 @@ namespace DXApplicationSwitchDemo
         private void document1_Maximized(object sender, EventArgs e)
         {
 
+        }
+
+        private void documentManagerMain_ViewChanged(object sender, DevExpress.XtraBars.Docking2010.ViewEventArgs args)
+        {
+            documentManagerMain.View.SaveLayoutToXml(Path.Combine(Application.StartupPath, "layout.xml"));
+        }
+
+        private void XtraFormBase_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void widgetViewMain_UnregisterDocumentsHostWindow(object sender, DevExpress.XtraBars.Docking2010.DocumentsHostWindowEventArgs e)
+        {
+           
+        }
+
+        private void widgetViewMain_RegisterDocumentsHostWindow(object sender, DevExpress.XtraBars.Docking2010.DocumentsHostWindowEventArgs e)
+        {
+
+        }
+
+        private void widgetViewMain_EndSizing(object sender, DevExpress.XtraBars.Docking2010.Views.LayoutEndSizingEventArgs e)
+        {
+            
         }
     }
 }
