@@ -34,6 +34,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.xtraUserControl11 = new DXApplicationSwitchDemo.XtraUserControl1();
+            this.treeList1 = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -46,7 +49,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(304, 235);
+            this.button1.Location = new System.Drawing.Point(19, 562);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -80,15 +83,61 @@
             // xtraUserControl11
             // 
             this.xtraUserControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.xtraUserControl11.Location = new System.Drawing.Point(174, 3);
+            this.xtraUserControl11.Location = new System.Drawing.Point(7, 156);
             this.xtraUserControl11.Name = "xtraUserControl11";
-            this.xtraUserControl11.Size = new System.Drawing.Size(205, 81);
+            this.xtraUserControl11.Size = new System.Drawing.Size(154, 71);
             this.xtraUserControl11.TabIndex = 5;
+            // 
+            // treeList1
+            // 
+            this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1});
+            this.treeList1.Location = new System.Drawing.Point(183, 29);
+            this.treeList1.Name = "treeList1";
+            this.treeList1.BeginUnboundLoad();
+            this.treeList1.AppendNode(new object[] {
+            "1"}, -1, 0, 0, -1, System.Windows.Forms.CheckState.Unchecked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            "12"}, 0);
+            this.treeList1.AppendNode(new object[] {
+            "123"}, 1, 0, 0, -1, System.Windows.Forms.CheckState.Checked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            "1234"}, 2, 0, 0, -1, System.Windows.Forms.CheckState.Checked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            null}, 2);
+            this.treeList1.AppendNode(new object[] {
+            null}, 2);
+            this.treeList1.AppendNode(new object[] {
+            "13"}, 0);
+            this.treeList1.AppendNode(new object[] {
+            "14"}, 0);
+            this.treeList1.AppendNode(new object[] {
+            "15"}, 0);
+            this.treeList1.AppendNode(new object[] {
+            "2"}, -1, 0, 0, -1, System.Windows.Forms.CheckState.Checked, DevExpress.XtraTreeList.NodeCheckBoxStyle.Check, null);
+            this.treeList1.AppendNode(new object[] {
+            null}, 9);
+            this.treeList1.AppendNode(new object[] {
+            null}, 9);
+            this.treeList1.EndUnboundLoad();
+            this.treeList1.OptionsView.EnableAppearanceEvenRow = true;
+            this.treeList1.OptionsView.EnableAppearanceOddRow = true;
+            this.treeList1.Size = new System.Drawing.Size(428, 352);
+            this.treeList1.TabIndex = 6;
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.Caption = "treeListColumn1";
+            this.treeListColumn1.FieldName = "treeListColumn1";
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 0;
             // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.treeList1);
             this.Controls.Add(this.xtraUserControl11);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
@@ -96,8 +145,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(392, 272);
+            this.Size = new System.Drawing.Size(725, 605);
             this.Load += new System.EventHandler(this.UserControl1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +161,7 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private XtraUserControl1 xtraUserControl11;
+        private DevExpress.XtraTreeList.TreeList treeList1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
     }
 }

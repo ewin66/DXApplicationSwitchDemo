@@ -145,7 +145,7 @@ namespace DXApplicationSwitchDemo
                                             {
                                                 (ctrl as XtraFormBase).Close();
                                             }
-                                            ctrl.Dispose();
+                                            if(ctrl != null) ctrl.Dispose();
                                         }));
                                         ctrl = null;
                                     }

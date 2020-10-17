@@ -75,12 +75,16 @@
             // 
             this.document1.Caption = "document1";
             this.document1.ControlName = "document1";
-            customHeaderButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions1.SvgImage")));
+            customHeaderButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("customHeaderButtonImageOptions1.Image")));
+            customHeaderButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions2.SvgImage")));
+            customHeaderButtonImageOptions2.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions3.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions3.SvgImage")));
+            customHeaderButtonImageOptions3.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions4.SvgImage")));
+            customHeaderButtonImageOptions4.SvgImageSize = new System.Drawing.Size(16, 16);
             this.document1.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
-            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject1, null, -1),
+            new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "wv萨阿芳", -1, true, null, true, false, true, serializableAppearanceObject1, null, -1),
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject2, null, -1),
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject3, null, -1),
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject4, null, -1)});
@@ -93,9 +97,13 @@
             this.document3.Caption = "document3";
             this.document3.ControlName = "document3";
             customHeaderButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions5.SvgImage")));
+            customHeaderButtonImageOptions5.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions6.SvgImage")));
+            customHeaderButtonImageOptions6.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions7.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions7.SvgImage")));
+            customHeaderButtonImageOptions7.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions8.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions8.SvgImage")));
+            customHeaderButtonImageOptions8.SvgImageSize = new System.Drawing.Size(16, 16);
             this.document3.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions5, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject5, null, -1),
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions6, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject6, null, -1),
@@ -107,9 +115,13 @@
             this.document2.Caption = "document2";
             this.document2.ControlName = "document2";
             customHeaderButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions9.SvgImage")));
+            customHeaderButtonImageOptions9.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions10.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions10.SvgImage")));
+            customHeaderButtonImageOptions10.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions11.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions11.SvgImage")));
+            customHeaderButtonImageOptions11.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions12.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions12.SvgImage")));
+            customHeaderButtonImageOptions12.SvgImageSize = new System.Drawing.Size(16, 16);
             this.document2.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions9, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject9, null, -1),
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions10, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject10, null, -1),
@@ -121,9 +133,13 @@
             this.document4.Caption = "document4";
             this.document4.ControlName = "document4";
             customHeaderButtonImageOptions13.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions13.SvgImage")));
+            customHeaderButtonImageOptions13.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions14.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions14.SvgImage")));
+            customHeaderButtonImageOptions14.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions15.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions15.SvgImage")));
+            customHeaderButtonImageOptions15.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions16.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions16.SvgImage")));
+            customHeaderButtonImageOptions16.SvgImageSize = new System.Drawing.Size(16, 16);
             this.document4.CustomHeaderButtons.AddRange(new DevExpress.XtraBars.Docking2010.IButton[] {
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions13, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject13, null, -1),
             new DevExpress.XtraBars.Docking.CustomHeaderButton("Button", true, customHeaderButtonImageOptions14, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, serializableAppearanceObject14, null, -1),
@@ -192,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 474);
+            this.ClientSize = new System.Drawing.Size(1032, 493);
             this.Name = "XtraFormBase";
             this.Text = "XtraForm";
             this.Activated += new System.EventHandler(this.XtraFormBase_Activated);
