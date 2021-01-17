@@ -49,6 +49,28 @@ namespace DXApplicationSwitchDemo
                 Document senderDocument = e.Document as Document;
                 Control senderControl = senderDocument.Control;
 
+                if (e.Document.Tag != null)
+                {
+                    switch (e.Document.Tag.ToString())
+                    {
+                        case "Developer":
+                            //e.Control = new developerDetailUserControl();
+                            break;
+                        case "Support":
+                            //e.Control = new supportDetailUserControl();
+                            break;
+                        case "TechWriter":
+                            //e.Control = new techWriterDetailUserControl();
+                            break;
+                        case "QA":
+                            //e.Control = new QADetailUserControl();
+                            break;
+                        case "HR":
+                            //e.Control = new HRDetailUserControl();
+                            break;
+                    }
+                }
+
                 if (e.Document.Caption.Equals("document1", StringComparison.InvariantCultureIgnoreCase) ||
                     e.Document.Caption.Equals("document2", StringComparison.InvariantCultureIgnoreCase) ||
                     e.Document.Caption.Equals("document3", StringComparison.InvariantCultureIgnoreCase) ||
@@ -265,7 +287,11 @@ namespace DXApplicationSwitchDemo
 
         private void widgetViewMain_ControlReleasing(object sender, DevExpress.XtraBars.Docking2010.Views.ControlReleasingEventArgs e)
         {
-
+            String methodname = new StackTrace(true).GetFrame(0).GetMethod().Name.ToString();
+            Debug.WriteLine(methodname);
+            WriteLog(methodname);
+            e.KeepControl = false;
+            e.DisposeControl = true;
         }
 
         private void document1_Maximized(object sender, EventArgs e)
@@ -296,6 +322,21 @@ namespace DXApplicationSwitchDemo
         private void widgetViewMain_EndSizing(object sender, DevExpress.XtraBars.Docking2010.Views.LayoutEndSizingEventArgs e)
         {
             
+        }
+
+        private void widgetViewMain_ControlShown(object sender, DevExpress.XtraBars.Docking2010.Views.DeferredControlLoadEventArgs e)
+        {
+            String methodname = new StackTrace(true).GetFrame(0).GetMethod().Name.ToString();
+            Debug.WriteLine(methodname);
+            WriteLog(methodname);
+
+        }
+
+        private void widgetViewMain_ControlReleased(object sender, DevExpress.XtraBars.Docking2010.Views.DeferredControlLoadEventArgs e)
+        {
+            String methodname = new StackTrace(true).GetFrame(0).GetMethod().Name.ToString();
+            Debug.WriteLine(methodname);
+            WriteLog(methodname);
         }
     }
 }

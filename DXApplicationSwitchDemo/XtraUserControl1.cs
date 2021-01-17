@@ -14,6 +14,8 @@ namespace DXApplicationSwitchDemo
 {
     public partial class XtraUserControl1 : DevExpress.XtraEditors.XtraUserControl
     {
+        static int xtraUserControlLoadCount = 0;
+        static int xtraUserControlDistroyCount = 0;
         public XtraUserControl1()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace DXApplicationSwitchDemo
 
         private void XtraUserControl1_Load(object sender, EventArgs e)
         {
+            xtraUserControlLoadCount++;
             try
             {
                 Bitmap backupBackgroundImage = null;

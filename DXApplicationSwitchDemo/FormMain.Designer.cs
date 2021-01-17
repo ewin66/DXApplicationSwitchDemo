@@ -51,6 +51,8 @@
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.customersNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.timerSwitch = new System.Windows.Forms.Timer(this.components);
+            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -167,7 +169,9 @@
             this.customersNavBarGroup});
             this.navBarControlMain.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.employeesNavBarItem,
-            this.customersNavBarItem});
+            this.customersNavBarItem,
+            this.navBarItem1,
+            this.navBarItem2});
             this.navBarControlMain.Location = new System.Drawing.Point(0, 160);
             this.navBarControlMain.Name = "navBarControlMain";
             this.navBarControlMain.OptionsNavPane.ExpandedWidth = 192;
@@ -182,7 +186,8 @@
             this.employeesNavBarGroup.Caption = "Employees";
             this.employeesNavBarGroup.Expanded = true;
             this.employeesNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.employeesNavBarItem)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.employeesNavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1)});
             this.employeesNavBarGroup.Name = "employeesNavBarGroup";
             // 
             // employeesNavBarItem
@@ -196,7 +201,8 @@
             this.customersNavBarGroup.Caption = "Customers";
             this.customersNavBarGroup.Expanded = true;
             this.customersNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.customersNavBarItem)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.customersNavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
             this.customersNavBarGroup.Name = "customersNavBarGroup";
             // 
             // customersNavBarItem
@@ -237,8 +243,19 @@
             // 
             // timerSwitch
             // 
-            this.timerSwitch.Enabled = true;
             this.timerSwitch.Tick += new System.EventHandler(this.timerSwitch_Tick);
+            // 
+            // navBarItem1
+            // 
+            this.navBarItem1.Caption = "清空";
+            this.navBarItem1.Name = "navBarItem1";
+            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
+            // 
+            // navBarItem2
+            // 
+            this.navBarItem2.Caption = "清空";
+            this.navBarItem2.Name = "navBarItem2";
+            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
             // FormMain
             // 
@@ -287,5 +304,7 @@
         private DevExpress.XtraNavBar.NavBarItem customersNavBarItem;
         private DevExpress.XtraBars.BarStaticItem barStaticItemCount;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
     }
 }
