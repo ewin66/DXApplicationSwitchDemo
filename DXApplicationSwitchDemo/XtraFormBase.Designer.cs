@@ -75,6 +75,7 @@
             // 
             this.document1.Caption = "document1";
             this.document1.ControlName = "document1";
+            this.document1.ControlTypeName = "document1";
             customHeaderButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("customHeaderButtonImageOptions1.Image")));
             customHeaderButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions2.SvgImage")));
@@ -96,6 +97,7 @@
             // 
             this.document3.Caption = "document3";
             this.document3.ControlName = "document3";
+            this.document3.ControlTypeName = "document3";
             customHeaderButtonImageOptions5.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions5.SvgImage")));
             customHeaderButtonImageOptions5.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions6.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions6.SvgImage")));
@@ -114,6 +116,7 @@
             // 
             this.document2.Caption = "document2";
             this.document2.ControlName = "document2";
+            this.document2.ControlTypeName = "document2";
             customHeaderButtonImageOptions9.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions9.SvgImage")));
             customHeaderButtonImageOptions9.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions10.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions10.SvgImage")));
@@ -132,6 +135,7 @@
             // 
             this.document4.Caption = "document4";
             this.document4.ControlName = "document4";
+            this.document4.ControlTypeName = "document4";
             customHeaderButtonImageOptions13.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions13.SvgImage")));
             customHeaderButtonImageOptions13.SvgImageSize = new System.Drawing.Size(16, 16);
             customHeaderButtonImageOptions14.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("customHeaderButtonImageOptions14.SvgImage")));
@@ -195,6 +199,8 @@
             this.widgetViewMain.UnregisterDocumentsHostWindow += new DevExpress.XtraBars.Docking2010.DocumentsHostWindowEventHandler(this.widgetViewMain_UnregisterDocumentsHostWindow);
             this.widgetViewMain.QueryControl += new DevExpress.XtraBars.Docking2010.Views.QueryControlEventHandler(this.widgetView1_QueryControl);
             this.widgetViewMain.ControlReleasing += new DevExpress.XtraBars.Docking2010.Views.ControlReleasingEventHandler(this.widgetViewMain_ControlReleasing);
+            this.widgetViewMain.ControlShown += new DevExpress.XtraBars.Docking2010.Views.DeferredControlLoadEventHandler(this.widgetViewMain_ControlShown);
+            this.widgetViewMain.ControlReleased += new DevExpress.XtraBars.Docking2010.Views.DeferredControlLoadEventHandler(this.widgetViewMain_ControlReleased);
             // 
             // stackGroup1
             // 

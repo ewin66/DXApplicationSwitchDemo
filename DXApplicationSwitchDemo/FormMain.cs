@@ -123,9 +123,8 @@ namespace DXApplicationSwitchDemo
                 ////if (senderNavBarItem == employeesNavBarItem || senderNavBarItem == customersNavBarItem)
                 {
                     #region  Clear Form or Control
-                    if (true)
+                    if (false)
                     {
-
                         foreach (var eachvar in navigationFrameMain.Controls)
                         {
                             if (eachvar is DevExpress.XtraBars.Navigation.NavigationPage)
@@ -170,7 +169,7 @@ namespace DXApplicationSwitchDemo
                     #endregion
 
                     #region  Add Form
-                    if (formExist == false)
+                    if (false && formExist == false)
                     {
                         try
                         {
@@ -233,7 +232,7 @@ namespace DXApplicationSwitchDemo
                 int controlsCount = activeNavigationPage.Controls.Count;
 
                 #region  Clear Form or Control
-                if (true)
+                if (false)
                 {
                     foreach (var eachvar in navigationFrameMain.Controls)
                     {
@@ -255,21 +254,24 @@ namespace DXApplicationSwitchDemo
                 }
                 #endregion
 
-                ////String userControlName = typeof(UserControl1).Name;
-                String userControlName = typeof(ucVaginoscopeView).Name;
-                XtraFormBase newFormColpModule = newXtraFormBase(userControlName);
+                if (false)
+                {
+                    ////String userControlName = typeof(UserControl1).Name;
+                    String userControlName = typeof(ucVaginoscopeView).Name;
+                    XtraFormBase newFormColpModule = newXtraFormBase(userControlName);
 
-                newcontrolcount++;
-                this.barStaticItemCount.Caption = newcontrolcount.ToString();
+                    newcontrolcount++;
+                    this.barStaticItemCount.Caption = newcontrolcount.ToString();
 
-                activeNavigationPage.SuspendLayout();
-                activeNavigationPage.Controls.Add((Control)(newFormColpModule));
-                newFormColpModule.Visible = true;
-                newFormColpModule.Dock = DockStyle.Fill;
-                newFormColpModule.ResumeLayout(false);
+                    activeNavigationPage.SuspendLayout();
+                    activeNavigationPage.Controls.Add((Control)(newFormColpModule));
+                    newFormColpModule.Visible = true;
+                    newFormColpModule.Dock = DockStyle.Fill;
+                    newFormColpModule.ResumeLayout(false);
 
-                activeNavigationPage.ResumeLayout(false);
-                activeNavigationPage.PerformLayout();
+                    activeNavigationPage.ResumeLayout(false);
+                    activeNavigationPage.PerformLayout();
+                }
             }
         }
 
@@ -277,6 +279,74 @@ namespace DXApplicationSwitchDemo
         {
             e.KeepControl = false;
             e.DisposeControl = true;
+        }
+
+        private void navBarItem1_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            String methodname = new StackTrace(true).GetFrame(0).GetMethod().Name.ToString();
+            Debug.WriteLine(methodname);
+
+            Boolean formExist = false;
+            if (sender is NavBarItem)
+            {
+                NavBarItem senderNavBarItem = sender as NavBarItem;
+                ////var senderNavBarLink = e.Link;
+                NavigationPage activeNavigationPage = (NavigationPage)navigationFrameMain.SelectedPage;
+
+                ////if (senderNavBarItem == employeesNavBarItem || senderNavBarItem == customersNavBarItem)
+                {
+                    #region  Clear Form or Control
+                    if (false)
+                    {
+                        foreach (var eachvar in navigationFrameMain.Controls)
+                        {
+                            if (eachvar is DevExpress.XtraBars.Navigation.NavigationPage)
+                            {
+                                DevExpress.XtraBars.Navigation.NavigationPage eachNavigationPage = eachvar as DevExpress.XtraBars.Navigation.NavigationPage;
+                                if (eachNavigationPage == activeNavigationPage)
+                                {
+                                    while (eachNavigationPage.Controls.Count > 0)
+                                    {
+                                        var ctrl = eachNavigationPage.Controls[0];
+                                        eachNavigationPage.Controls.RemoveAt(0);
+
+                                        ctrl.BeginInvoke(new MethodInvoker(delegate
+                                        {
+                                            ////ctrl.Parent = null;
+                                            if (ctrl is XtraFormBase)
+                                            {
+                                                (ctrl as XtraFormBase).Close();
+                                            }
+                                            if (ctrl != null) ctrl.Dispose();
+                                        }));
+                                        ctrl = null;
+                                    }
+
+                                    ////////foreach (var eachForm in eachNavigationPage.Controls)
+                                    ////////{
+                                    ////////    if (eachForm is XtraFormBase)
+                                    ////////    {
+                                    ////////        eachNavigationPage.Controls.Clear();
+                                    ////////        ////(eachForm as XtraFormBase).Dispose();
+                                    ////////        ////break;
+                                    ////////    }
+                                    ////////    else
+                                    ////////    {
+                                    ////////        eachNavigationPage.Controls.Clear();
+                                    ////////    }
+                                    ////////}
+                                }
+                            }
+                        }
+                    }
+                    #endregion
+                }
+            }
+        }
+
+        private void navBarItem2_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+
         }
     }
 }
