@@ -296,12 +296,7 @@ namespace DXApplicationSwitchDemo
 
         private void document1_Maximized(object sender, EventArgs e)
         {
-
-
-
-
-
-
+            WeakReference VWERQWER
         }
 
         private void documentManagerMain_ViewChanged(object sender, DevExpress.XtraBars.Docking2010.ViewEventArgs args)
